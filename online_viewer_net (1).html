@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zrivzo Labs - Website Landing Page Hanya Rp9.000!</title>
+    <meta name="description" content="Zrivzo Labs: Landing Page simpel untuk personal branding & usaha kecil. Hanya Rp9.000 dengan domain gratis untuk 10 order pertama!">
+    <meta name="keywords" content="website murah, landing page, personal branding, usaha kecil, domain gratis">
+    <meta name="author" content="Zrivzo Labs">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zrivzolabs.com/">
+    <meta property="og:title" content="Zrivzo Labs - Website Landing Page Hanya Rp9.000!">
+    <meta property="og:description" content="Landing Page simpel untuk personal branding & usaha kecil. Domain gratis untuk 10 order pertama!">
+    <meta property="og:image" content="https://files.catbox.moe/NjauahG.webp">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://zrivzolabs.com/">
+    <meta property="twitter:title" content="Zrivzo Labs - Website Landing Page Hanya Rp9.000!">
+    <meta property="twitter:description" content="Landing Page simpel untuk personal branding & usaha kecil. Domain gratis untuk 10 order pertama!">
+    <meta property="twitter:image" content="https://files.catbox.moe/NjauahG.webp">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://files.catbox.moe/NjauahG.webp">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS + Flowbite -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bright-orange': '#FF6B00',
+                        'creamy-peach': '#f5e7c6',
+                        'soft-white': '#f5efe6',
+                        'dark-brown': '#4a3524',
+                        'light-orange': '#FFF5EB',
+                    },
+                    fontFamily: {
+                        'heading': ['Bricolage Grotesque', 'sans-serif'],
+                        'body': ['Nunito', 'sans-serif'],
+                        'button': ['Alata', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <style>
+        :root {
+            --bright-orange: #FF6B00;
+            --creamy-peach: #f5e7c6;
+            --soft-white: #f5efe6;
+            --dark-brown: #4a3524;
+            --light-orange: #FFF5EB;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: white;
+            color: var(--dark-brown);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+        
+        .btn-primary {
+            font-family: 'Alata', sans-serif;
+            background-color: var(--bright-orange);
+            color: white;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e05e00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 0, 0.4);
+        }
+        
+        .navbar {
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .price-sticker {
+            background: linear-gradient(135deg, #FF6B00 0%, #FF8C42 100%);
+            color: white;
+            transform: rotate(5deg);
+            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.3);
+        }
+        
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--dark-brown);
+            color: white;
+            padding: 1rem;
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .cookie-consent.show {
+            transform: translateY(0);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100%;
+            background-color: white;
+            z-index: 999;
+            transition: right 0.4s ease;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            right: 0;
+        }
+        
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .hamburger-line {
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger-active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .hamburger-active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger-active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+            border-left: 4px solid var(--bright-orange);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--bright-orange);
+            border-radius: 2px;
+        }
+        
+        .template-card {
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .template-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .template-card img {
+            transition: transform 0.5s ease;
+        }
+        
+        .template-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--bright-orange);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+            box-shadow: 0 4px 10px rgba(255, 107, 0, 0.3);
+        }
+        
+        .guarantee-badge {
+            background: linear-gradient(135deg, #FF6B00 0%, #FF8C42 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-headline {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-dark-brown">
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <p class="text-center md:text-left mb-4 md:mb-0 text-sm">Kami menggunakan cookie untuk meningkatkan pengalaman Anda. Dengan melanjutkan, Anda setuju dengan kebijakan cookie kami.</p>
+            <div class="flex space-x-2">
+                <button id="cookieAccept" class="px-4 py-2 bg-bright-orange text-white rounded-md hover:bg-orange-600 transition text-sm">Setuju</button>
+                <button id="cookieDecline" class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition text-sm">Tolak</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileOverlay" class="mobile-overlay"></div>
+
+    <!-- Mobile Menu Sidebar -->
+    <div id="mobileMenu" class="mobile-menu">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-8">
+                <a href="#" class="flex items-center">
+                    <img src="https://files.catbox.moe/NjauahG.webp" alt="Zrivzo Labs Logo" class="h-8 w-auto">
+                    <span class="ml-2 text-xl font-heading font-bold">Zrivzo Labs</span>
+                </a>
+                <button id="closeMobileMenu" class="p-2 rounded-full hover:bg-gray-100">
+                    <i data-feather="x" class="text-dark-brown"></i>
+                </button>
+            </div>
+            
+            <nav class="space-y-4">
+                <a href="#hero" class="block py-2 px-4 rounded-lg hover:bg-light-orange transition">Beranda</a>
+                <a href="#why" class="block py-2 px-4 rounded-lg hover:bg-light-orange transition">Kenapa Website?</a>
+                <a href="#services" class="block py-2 px-4 rounded-lg hover:bg-light-orange transition">Layanan</a>
+                <a href="#templates" class="block py-2 px-4 rounded-lg hover:bg-light-orange transition">Template</a>
+                <a href="#pricing" class="block py-2 px-4 rounded-lg hover:bg-light-orange transition">Harga</a>
+                <a href="#how-to-order" class="block py-2 px-4 rounded-lg hover:bg-light-orange transition">Cara Order</a>
+            </nav>
+            
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <a href="https://s.id/orderwebz" target="_blank" class="btn-primary px-4 py-3 rounded-lg w-full text-center block">Order Sekarang</a>
+            </div>
+            
+            <div class="mt-8 text-sm text-gray-600">
+                <p>Hubungi kami:</p>
+                <div class="mt-2 space-y-2">
+                    <a href="https://wa.me/6281234567890" class="flex items-center hover:text-bright-orange transition">
+                        <i data-feather="phone" class="w-4 h-4 mr-2"></i> +62 812-3456-7890
+                    </a>
+                    <a href="mailto:info@zrivzolabs.com" class="flex items-center hover:text-bright-orange transition">
+                        <i data-feather="mail" class="w-4 h-4 mr-2"></i> info@zrivzolabs.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar fixed top-0 left-0 w-full z-50 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center">
+                        <img src="https://files.catbox.moe/NjauahG.webp" alt="Zrivzo Labs Logo" class="h-8 w-auto">
+                        <span class="ml-2 text-xl font-heading font-bold">Zrivzo Labs</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#hero" class="text-dark-brown hover:text-bright-orange transition font-medium">Beranda</a>
+                    <a href="#why" class="text-dark-brown hover:text-bright-orange transition font-medium">Kenapa Website?</a>
+                    <a href="#services" class="text-dark-brown hover:text-bright-orange transition font-medium">Layanan</a>
+                    <a href="#templates" class="text-dark-brown hover:text-bright-orange transition font-medium">Template</a>
+                    <a href="#pricing" class="text-dark-brown hover:text-bright-orange transition font-medium">Harga</a>
+                    <a href="#how-to-order" class="text-dark-brown hover:text-bright-orange transition font-medium">Cara Order</a>
+                    <a href="https://s.id/orderwebz" target="_blank" class="btn-primary px-5 py-2 rounded-md font-medium">Order Sekarang</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuButton" class="flex flex-col justify-center items-center w-8 h-8">
+                        <span class="hamburger-line block w-6 h-0.5 bg-dark-brown mb-1.5"></span>
+                        <span class="hamburger-line block w-6 h-0.5 bg-dark-brown mb-1.5"></span>
+                        <span class="hamburger-line block w-6 h-0.5 bg-dark-brown"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-light-orange to-soft-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div data-aos="fade-right" data-aos-duration="800">
+                    <h1 class="hero-headline text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight">
+                        Website Profesional <span class="text-bright-orange">Hanya Rp9.000!</span>
+                    </h1>
+                    <p class="mt-6 text-lg md:text-xl text-dark-brown opacity-90">
+                        Buka peluang bisnis lebih luas dengan landing page eksklusif. <strong>Domain .my.id atau .biz.id GRATIS</strong> untuk 10 pembeli pertama! 
+                        Solusi tepat untuk UMKM, freelancer, dan pelaku usaha kreatif.
+                    </p>
+                    <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="https://s.id/orderwebz" target="_blank" class="btn-primary px-6 py-3 rounded-lg text-lg font-button text-center shadow-lg">
+                            DAPATKAN SEKARANG
+                        </a>
+                        <a href="#services" class="px-6 py-3 rounded-lg text-lg border-2 border-bright-orange text-bright-orange hover:bg-bright-orange hover:text-white transition text-center font-medium">
+                            Lihat Detail Layanan
+                        </a>
+                    </div>
+                    <div class="mt-6 flex items-center text-sm text-dark-brown opacity-80">
+                        <i data-feather="clock" class="w-4 h-4 mr-2"></i>
+                        <span>Proses cepat - Website siap dalam 3-5 hari kerja</span>
+                    </div>
+                </div>
+                <div data-aos="fade-left" data-aos-duration="800" class="flex justify-center relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             alt="Website Development" 
+                             class="rounded-xl shadow-2xl max-w-full h-auto">
+                        <div class="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-lg p-4 hidden md:block">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-bright-orange rounded-full flex items-center justify-center text-white font-bold mr-3">✓</div>
+                                <div>
+                                    <p class="font-semibold">Harga Terjangkau</p>
+                                    <p class="text-sm text-gray-600">Kualitas premium, harga terjangkau</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kenapa Punya Website? -->
+    <section id="why" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl md:text-4xl font-heading font-bold text-center" data-aos="fade-up">Mengapa Anda Perlu Website?</h2>
+            <p class="text-center text-lg text-dark-brown opacity-80 max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                Di era digital seperti sekarang, website bukan lagi sekadar kebutuhan tambahan, melainkan aset penting untuk perkembangan bisnis dan personal branding.
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="feature-card bg-light-orange p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-bright-orange rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="award" class="text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-3">Tingkatkan Kredibilitas</h3>
+                    <p class="text-dark-brown opacity-90">Website resmi membuat bisnis atau personal brand Anda terlihat lebih profesional dan terpercaya di mata klien.</p>
+                </div>
+                
+                <div class="feature-card bg-light-orange p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-bright-orange rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="trending-up" class="text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-3">Jangkau Lebih Luas</h3>
+                    <p class="text-dark-brown opacity-90">Dengan website, bisnis Anda dapat diakses oleh calon pelanggan dari mana saja dan kapan saja.</p>
+                </div>
+                
+                <div class="feature-card bg-light-orange p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-bright-orange rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="dollar-sign" class="text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-3">Hemat Biaya Marketing</h3>
+                    <p class="text-dark-brown opacity-90">Website menjadi pusat informasi yang efektif, mengurangi kebutuhan brosur fisik dan biaya promosi konvensional.</p>
+                </div>
+                
+                <div class="feature-card bg-light-orange p-6 rounded-xl text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-bright-orange rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="zap" class="text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold mb-3">Proses Cepat & Mudah</h3>
+                    <p class="text-dark-brown opacity-90">Dengan Zrivzo Labs, dapatkan website berkualitas dalam hitungan hari dengan proses yang sederhana.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Layanan -->
+    <section id="services" class="py-16 bg-light-orange">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="section-title text-3xl md:text-4xl font-heading font-bold mb-6">Apa yang Anda Dapatkan?</h2>
+                    <p class="text-lg text-dark-brown opacity-90 mb-8">
+                        Dengan investasi kecil hanya <strong>Rp9.000</strong>, Anda akan mendapatkan website landing page profesional yang siap membantu mengembangkan bisnis atau personal brand Anda.
+                    </p>
+                    
+                    <ul class="space-y-5">
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="text-bright-orange mr-3 mt-1 flex-shrink-0"></i>
+                            <span><strong>Landing Page Responsif</strong> - Tampilan optimal di semua perangkat (desktop, tablet, mobile)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="text-bright-orange mr-3 mt-1 flex-shrink-0"></i>
+                            <span><strong>Desain Modern & Profesional</strong> - Template eksklusif dengan UI/UX yang menarik</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="text-bright-orange mr-3 mt-1 flex-shrink-0"></i>
+                            <span><strong>1 Revisi Desain</strong> - Kami berikan kesempatan revisi setelah website selesai</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="text-bright-orange mr-3 mt-1 flex-shrink-0"></i>
+                            <span><strong>Domain Gratis</strong> - Pilihan domain .my.id atau .biz.id untuk 10 order pertama</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="text-bright-orange mr-3 mt-1 flex-shrink-0"></i>
+                            <span><strong>Hosting 1 Tahun</strong> - Gratis hosting selama 12 bulan pertama</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check-circle" class="text-bright-orange mr-3 mt-1 flex-shrink-0"></i>
+                            <span><strong>Garansi 30 Hari</strong> - Perbaikan bug dan masalah teknis selama 1 bulan</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-8">
+                        <a href="https://s.id/orderwebz" target="_blank" class="btn-primary px-6 py-3 rounded-lg text-lg font-button inline-block shadow-lg">
+                            Pesan Sekarang
+                        </a>
+                        <div class="guarantee-badge mt-4">
+                            <i data-feather="shield" class="w-4 h-4 inline mr-1"></i> Garansi Kepuasan 100%
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" class="relative">
+                    <div class="bg-white rounded-2xl shadow-xl p-8 relative z-10">
+                        <h3 class="text-2xl font-heading font-bold mb-4">Investasi Terbaik untuk Bisnis Anda</h3>
+                        <p class="mb-6 text-dark-brown opacity-90">Dengan hanya Rp9.000, Anda sudah bisa memiliki aset digital yang bernilai untuk jangka panjang. Bandingkan dengan biaya brosur atau iklan konvensional yang hanya bertahan sementara.</p>
+                        
+                        <div class="flex justify-center mt-8">
+                            <div class="price-sticker px-8 py-6 rounded-xl text-center">
+                                <span class="text-4xl font-bold block">Rp9.000</span>
+                                <span class="block text-lg mt-1">Sekali Bayar, Banyak Manfaat!</span>
+                                <span class="block text-sm opacity-90 mt-2">*Harga normal Rp 149.000</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-bright-orange opacity-10 rounded-full"></div>
+                    <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-bright-orange opacity-10 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Template Demo -->
+    <section id="templates" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl md:text-4xl font-heading font-bold text-center" data-aos="fade-up">Pilih Template Favorit Anda</h2>
+            <p class="text-center text-lg text-dark-brown opacity-80 max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                Kami memiliki berbagai template menarik yang bisa disesuaikan dengan kebutuhan bisnis atau personal brand Anda. 
+                <strong>Pilih template, kami yang akan menyesuaikan kontennya!</strong>
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="template-card bg-gray-50 rounded-xl overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             alt="Template Minimalis" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-bright-orange text-white text-xs font-bold px-2 py-1 rounded">POPULER</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading font-semibold text-xl mb-2">Template Minimalis</h3>
+                        <p class="text-dark-brown opacity-80 mb-4">Desain bersih dan elegan, cocok untuk profesional dan bisnis yang ingin tampil sederhana namun berkelas.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-bright-orange font-bold">Rp9.000</span>
+                            <a href="#pricing" class="text-sm text-dark-brown opacity-80 hover:text-bright-orange transition">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="template-card bg-gray-50 rounded-xl overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Template E-commerce" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-heading font-semibold text-xl mb-2">Template E-commerce</h3>
+                        <p class="text-dark-brown opacity-80 mb-4">Fokus pada produk dengan layout yang memudahkan pengunjung untuk melihat dan membeli produk Anda.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-bright-orange font-bold">Rp9.000</span>
+                            <a href="#pricing" class="text-sm text-dark-brown opacity-80 hover:text-bright-orange transition">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="template-card bg-gray-50 rounded-xl overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" 
+                         alt="Template Startup" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-heading font-semibold text-xl mb-2">Template Startup</h3>
+                        <p class="text-dark-brown opacity-80 mb-4">Modern dan dinamis, sempurna untuk perusahaan rintisan yang ingin menunjukkan inovasi dan energi.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-bright-orange font-bold">Rp9.000</span>
+                            <a href="#pricing" class="text-sm text-dark-brown opacity-80 hover:text-bright-orange transition">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="https://s.id/orderwebz" target="_blank" class="btn-primary px-8 py-3 rounded-lg text-lg font-button inline-block shadow-lg">
+                    Lihat Semua Template
+                </a>
+                <p class="text-sm text-dark-brown opacity-70 mt-4">Semua template termasuk dalam paket harga yang sama!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Harga & Promo -->
+    <section id="pricing" class="py-16 bg-gradient-to-r from-bright-orange to-orange-500 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4" data-aos="fade-up">Penawaran Spesial Terbatas!</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Jangan lewatkan kesempatan emas ini! Dapatkan website profesional dengan harga terjangkau sebelum kehabisan slot promo.
+            </p>
+            
+            <div class="bg-white text-dark-brown rounded-2xl shadow-2xl p-8 max-w-4xl mx-auto" data-aos="zoom-in">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-heading font-bold mb-4">Paket Landing Page Zrivzo</h3>
+                        <div class="text-4xl font-bold text-bright-orange mb-2">Rp9.000</div>
+                        <p class="text-lg text-gray-600 mb-6">Hanya sekali bayar, tidak ada biaya tambahan!</p>
+                        
+                        <ul class="text-left space-y-3 mb-6">
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-bright-orange mr-2"></i>
+                                <span>1 Halaman Landing Page Responsif</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-bright-orange mr-2"></i>
+                                <span>Desain Modern & Profesional</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-bright-orange mr-2"></i>
+                                <span>Optimasi SEO Dasar</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-bright-orange mr-2"></i>
+                                <span>Form Kontak yang Berfungsi</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-bright-orange mr-2"></i>
+                                <span>Integrasi Media Sosial</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-bright-orange mr-2"></i>
+                                <span>Gratis Hosting 1 Tahun</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-bright-orange mr-2"></i>
+                                <span>Domain .my.id/.biz.id Gratis*</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-light-orange rounded-xl p-6">
+                            <h4 class="font-heading font-semibold text-lg mb-4">Promo Berakhir Dalam:</h4>
+                            <div class="flex justify-center space-x-2 mb-4">
+                                <div class="bg-white rounded-lg p-3 text-center shadow">
+                                    <div class="text-2xl font-bold text-bright-orange" id="days">07</div>
+                                    <div class="text-xs text-gray-600">Hari</div>
+                                </div>
+                                <div class="bg-white rounded-lg p-3 text-center shadow">
+                                    <div class="text-2xl font-bold text-bright-orange" id="hours">23</div>
+                                    <div class="text-xs text-gray-600">Jam</div>
+                                </div>
+                                <div class="bg-white rounded-lg p-3 text-center shadow">
+                                    <div class="text-2xl font-bold text-bright-orange" id="minutes">59</div>
+                                    <div class="text-xs text-gray-600">Menit</div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <div class="flex justify-between text-sm text-dark-brown mb-1">
+                                    <span>Slot Tersedia:</span>
+                                    <span id="slotCounter">14/20 Terisi</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-3">
+                                    <div id="slotProgress" class="bg-green-500 h-3 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            
+                            <a href="https://s.id/orderwebz" target="_blank" class="btn-primary px-6 py-3 rounded-lg text-lg font-button inline-block w-full shadow-lg">
+                                Pesan Sekarang!
+                            </a>
+                            <p class="text-xs text-gray-600 mt-3 text-center">*Domain gratis hanya untuk 10 order pertama</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 flex flex-wrap justify-center gap-4" data-aos="fade-up">
+                <div class="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2">
+                    <i data-feather="users" class="w-4 h-4 mr-2"></i>
+                    <span>500+ Website Telah Dibuat</span>
+                </div>
+                <div class="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2">
+                    <i data-feather="star" class="w-4 h-4 mr-2"></i>
+                    <span>Rating 4.9/5 dari Klien</span>
+                </div>
+                <div class="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2">
+                    <i data-feather="clock" class="w-4 h-4 mr-2"></i>
+                    <span>Proses 3-5 Hari</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cara Order -->
+    <section id="how-to-order" class="py-16 bg-light-orange">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl md:text-4xl font-heading font-bold text-center" data-aos="fade-up">Cara Order Mudah & Cepat</h2>
+            <p class="text-center text-lg text-dark-brown opacity-80 max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                Hanya butuh 3 langkah sederhana untuk memiliki website profesional. Kami akan memandu Anda dari awal hingga website siap digunakan.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <h3 class="text-xl font-heading font-semibold mb-4">Kirim Detail Website</h3>
+                    <p class="text-dark-brown opacity-90">Klik tombol Order Sekarang dan kirimkan informasi yang dibutuhkan melalui WhatsApp. Jelaskan preferensi desain dan konten yang diinginkan.</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <h3 class="text-xl font-heading font-semibold mb-4">Konfirmasi & Pembayaran</h3>
+                    <p class="text-dark-brown opacity-90">Setelah konfirmasi detail, lakukan pembayaran Rp9.000 via transfer bank atau e-wallet. Kami akan segera memproses pesanan Anda.</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <h3 class="text-xl font-heading font-semibold mb-4">Website Siap Digunakan!</h3>
+                    <p class="text-dark-brown opacity-90">Dalam 3-5 hari, website Anda akan siap. Kami berikan 1 revisi gratis dan bimbingan penggunaan hingga Anda puas.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="https://s.id/orderwebz" target="_blank" class="btn-primary px-8 py-4 rounded-lg text-xl font-button inline-block shadow-lg">
+                    ORDER SEKARANG - Rp9.000
+                </a>
+                <p class="text-sm text-dark-brown opacity-70 mt-4">Gratis konsultasi sebelum pemesanan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl md:text-4xl font-heading font-bold text-center" data-aos="fade-up">Apa Kata Klien Kami?</h2>
+            <p class="text-center text-lg text-dark-brown opacity-80 max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                Ribuan pelaku usaha dan profesional telah mempercayakan pembuatan website mereka kepada Zrivzo Labs.
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-bright-orange rounded-full flex items-center justify-center text-white font-bold mr-4">A</div>
+                        <div>
+                            <h4 class="font-heading font-semibold">Ahmad Fotografi</h4>
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-dark-brown opacity-90">"Website dari Zrivzo Labs membantu portofolio fotografi saya terlihat profesional. Dalam 2 minggu, saya dapat 3 klien baru! Pelayanan cepat dan hasilnya memuaskan."</p>
+                </div>
+                
+                <div class="testimonial-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-bright-orange rounded-full flex items-center justify-center text-white font-bold mr-4">S</div>
+                        <div>
+                            <h4 class="font-heading font-semibold">Sari's Cake</h4>
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-dark-brown opacity-90">"Sejak punya website, orderan kue saya meningkat 40%! Desainnya cantik dan mudah diakses pelanggan. Harga Rp9.000 benar-benar worth it!"</p>
+                </div>
+                
+                <div class="testimonial-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-bright-orange rounded-full flex items-center justify-center text-white font-bold mr-4">R</div>
+                        <div>
+                            <h4 class="font-heading font-semibold">Rizki Freelancer</h4>
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-dark-brown opacity-90">"Sebagai freelancer, website personal sangat penting. Zrivzo Labs membantu saya membuat website yang menarik dengan harga terjangkau. Sekarang klien lebih mudah menemukan saya!"</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="https://s.id/orderwebz" target="_blank" class="btn-primary px-6 py-3 rounded-lg text-lg font-button inline-block shadow-lg">
+                    Jadilah Klien Berikutnya
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-light-orange">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl md:text-4xl font-heading font-bold text-center" data-aos="fade-up">Pertanyaan Umum</h2>
+            
+            <div class="mt-12 space-y-6" data-aos="fade-up">
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <h3 class="font-heading font-semibold text-lg mb-2">Apakah benar hanya Rp9.000 sekali bayar?</h3>
+                    <p class="text-dark-brown opacity-90">Ya, benar! Anda hanya membayar Rp9.000 sekali untuk pembuatan website landing page. Tidak ada biaya tersembunyi atau berlangganan.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <h3 class="font-heading font-semibold text-lg mb-2">Berapa lama proses pengerjaan website?</h3>
+                    <p class="text-dark-brown opacity-90">Rata-rata website siap dalam 3-5 hari kerja, tergantung kompleksitas konten yang Anda berikan.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <h3 class="font-heading font-semibold text-lg mb-2">Apakah bisa request desain khusus?</h3>
+                    <p class="text-dark-brown opacity-90">Kami menyediakan template yang bisa disesuaikan dengan kebutuhan Anda. Untuk desain khusus di luar template, tersedia dengan tambahan biaya.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <h3 class="font-heading font-semibold text-lg mb-2">Bagaimana dengan domain gratis?</h3>
+                    <p class="text-dark-brown opacity-90">Domain .my.id atau .biz.id gratis hanya untuk 10 order pertama. Setelah kuota habis, domain bisa dibeli dengan harga normal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-bright-orange text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4" data-aos="fade-up">Jangan Tunda Kesempatan Ini!</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Hanya dengan Rp9.000, miliki website profesional yang akan membantu mengembangkan bisnis Anda. Penawaran terbatas, jangan sampai kehabisan!
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://s.id/orderwebz" target="_blank" class="btn-primary bg-white text-bright-orange px-8 py-4 rounded-lg text-xl font-button inline-block shadow-lg hover:bg-gray-100">
+                    PESAN SEKARANG - Rp9.000
+                </a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="px-8 py-4 rounded-lg text-xl border-2 border-white text-white hover:bg-white hover:text-bright-orange transition text-center font-medium">
+                    Konsultasi Gratis
+                </a>
+            </div>
+            
+            <p class="text-sm mt-6 opacity-90" data-aos="fade-up" data-aos-delay="300">
+                <i data-feather="shield" class="w-4 h-4 inline mr-1"></i> Garansi 30 hari - Jika tidak puas, kami akan perbaiki hingga Anda满意
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-brown text-soft-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <a href="#" class="flex items-center mb-4">
+                        <img src="https://files.catbox.moe/NjauahG.webp" alt="Zrivzo Labs Logo" class="h-8 w-auto">
+                        <span class="ml-2 text-xl font-heading font-bold">Zrivzo Labs</span>
+                    </a>
+                    <p class="mb-4 max-w-md">Kami berkomitmen membantu UMKM dan profesional Indonesia memiliki website berkualitas dengan harga terjangkau. Dengan pengalaman lebih dari 5 tahun, kami telah membantu ratusan klien mengembangkan bisnis mereka secara digital.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://wa.me/6281234567890" target="_blank" class="hover:text-bright-orange transition" aria-label="WhatsApp">
+                            <i data-feather="message-circle"></i>
+                        </a>
+                        <a href="https://instagram.com/zrivzolabs" target="_blank" class="hover:text-bright-orange transition" aria-label="Instagram">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="mailto:info@zrivzolabs.com" class="hover:text-bright-orange transition" aria-label="Email">
+                            <i data-feather="mail"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-heading font-semibold text-lg mb-4">Layanan</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="hover:text-bright-orange transition">Landing Page</a></li>
+                        <li><a href="#templates" class="hover:text-bright-orange transition">Template Website</a></li>
+                        <li><a href="#pricing" class="hover:text-bright-orange transition">Paket Harga</a></li>
+                        <li><a href="#how-to-order" class="hover:text-bright-orange transition">Cara Order</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-heading font-semibold text-lg mb-4">Kontak</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2 w-4 h-4"></i>
+                            <a href="https://wa.me/6281234567890" target="_blank" class="hover:text-bright-orange transition">+62 812-3456-7890</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2 w-4 h-4"></i>
+                            <a href="mailto:info@zrivzolabs.com" class="hover:text-bright-orange transition">info@zrivzolabs.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="map-pin" class="mr-2 w-4 h-4"></i>
+                            <span>Jakarta, Indonesia</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-6">
+                        <a href="https://s.id/orderwebz" target="_blank" class="btn-primary px-4 py-2 rounded-md text-sm inline-block">Order Sekarang</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2025 Zrivzo Labs. All rights reserved. | Website dibuat dengan ❤️ untuk UMKM Indonesia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    <script>
+        // Initialize Feather Icons
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+            
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            const heroSection = document.getElementById('hero');
+            
+            window.addEventListener('scroll', function() {
+                const heroHeight = heroSection.offsetHeight;
+                
+                if (window.scrollY > heroHeight - 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Mobile menu functionality
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const closeMobileMenu = document.getElementById('closeMobileMenu');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            
+            function openMobileMenu() {
+                mobileMenu.classList.add('open');
+                mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                mobileMenuButton.classList.add('hamburger-active');
+            }
+            
+            function closeMobileMenuFunc() {
+                mobileMenu.classList.remove('open');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                mobileMenuButton.classList.remove('hamburger-active');
+            }
+            
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+            closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+            mobileOverlay.addEventListener('click', closeMobileMenuFunc);
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenuFunc);
+            });
+            
+            // Cookie consent
+            const cookieConsent = document.getElementById('cookieConsent');
+            const cookieAccept = document.getElementById('cookieAccept');
+            const cookieDecline = document.getElementById('cookieDecline');
+            
+            // Check if user has already made a choice
+            if (!localStorage.getItem('cookieConsent')) {
+                // Show cookie consent after a delay
+                setTimeout(() => {
+                    cookieConsent.classList.add('show');
+                }, 2000);
+            }
+            
+            cookieAccept.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieConsent.classList.remove('show');
+            });
+            
+            cookieDecline.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'declined');
+                cookieConsent.classList.remove('show');
+            });
+            
+            // Order button confirmation
+            const orderButtons = document.querySelectorAll('a[href="https://s.id/orderwebz"]');
+            orderButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Only show confirmation for internal clicks (not when opening in new tab)
+                    if (!e.ctrlKey && !e.metaKey) {
+                        e.preventDefault();
+                        Swal.fire({
+                            title: 'Order Website Zrivzo Labs',
+                            html: `
+                                <p>Anda akan diarahkan ke WhatsApp untuk melanjutkan pemesanan.</p>
+                                <div class="my-4 p-3 bg-orange-50 rounded-lg">
+                                    <p class="font-semibold text-orange-800">Penawaran Spesial:</p>
+                                    <ul class="text-left mt-2 text-sm">
+                                        <li>✓ Website Landing Page Profesional</li>
+                                        <li>✓ Hanya Rp9.000 ( sekali bayar )</li>
+                                        <li>✓ Domain Gratis untuk 10 order pertama</li>
+                                        <li>✓ Garansi 30 hari</li>
+                                    </ul>
+                                </div>
+                                <p>Apakah Anda yakin ingin melanjutkan?</p>
+                            `,
+                            icon: 'question',
+                            showCancelButton: true,
+                            confirmButtonColor: '#FF6B00',
+                            cancelButtonColor: '#6B7280',
+                            confirmButtonText: 'Ya, Lanjutkan ke WhatsApp',
+                            cancelButtonText: 'Batal'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.open('https://s.id/orderwebz', '_blank');
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // Update slot counter (example with random number)
+            const slotCounter = document.getElementById('slotCounter');
+            const slotProgress = document.getElementById('slotProgress');
+            
+            function updateSlotCounter() {
+                // In a real scenario, this would fetch from an API
+                const totalSlots = 20;
+                const usedSlots = Math.floor(Math.random() * 7) + 10; // Random between 10-16
+                const remainingSlots = totalSlots - usedSlots;
+                
+                slotCounter.innerHTML = `${remainingSlots}/${totalSlots} Terisi`;
+                slotProgress.style.width = `${(usedSlots / totalSlots) * 100}%`;
+            }
+            
+            updateSlotCounter();
+            
+            // Countdown timer
+            function updateCountdown() {
+                const now = new Date();
+                const targetDate = new Date(now);
+                targetDate.setDate(now.getDate() + 7); // 7 days from now
+                
+                const timeRemaining = targetDate - now;
+                
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            }
+            
+            // Update countdown every minute
+            updateCountdown();
+            setInterval(updateCountdown, 60000);
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 100; // Account for fixed navbar
+                        
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
