@@ -267,6 +267,182 @@
             margin-top: 10px;
         }
         
+    .testimonial-slider {
+        position: relative;
+        overflow: hidden;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+    
+    .testimonial-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    .testimonial-slide {
+        flex: 0 0 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+    
+    @media (min-width: 768px) {
+        .testimonial-slide {
+            flex: 0 0 50%;
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        .testimonial-slide {
+            flex: 0 0 33.333%;
+        }
+    }
+    
+    .testimonial-card {
+        background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+        border-left: 4px solid var(--bright-orange);
+        border-radius: 12px;
+        padding: 30px;
+        height: 100%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .testimonial-content {
+        position: relative;
+    }
+    
+    .testimonial-avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--bright-orange);
+        margin-bottom: 15px;
+    }
+    
+    .testimonial-rating {
+        display: flex;
+        margin: 10px 0;
+    }
+    
+    .testimonial-rating i {
+        width: 18px;
+        height: 18px;
+        margin-right: 2px;
+    }
+    
+    .testimonial-text {
+        font-style: italic;
+        line-height: 1.6;
+        margin-top: 15px;
+        position: relative;
+        padding-left: 20px;
+    }
+    
+    .testimonial-text:before {
+        content: """;
+        position: absolute;
+        left: 0;
+        top: -10px;
+        font-size: 60px;
+        color: var(--bright-orange);
+        opacity: 0.2;
+        font-family: Georgia, serif;
+        line-height: 1;
+    }
+    
+    .testimonial-author {
+        font-weight: 700;
+        margin-top: 15px;
+        color: var(--dark-brown);
+    }
+    
+    .testimonial-role {
+        color: #666;
+        font-size: 0.9rem;
+    }
+    
+    /* Navigation buttons */
+    .testimonial-nav {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+    
+    .testimonial-nav button {
+        background: var(--bright-orange);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .testimonial-nav button:hover {
+        background: #e05e00;
+        transform: scale(1.1);
+    }
+    
+    .testimonial-nav button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: none;
+    }
+    
+    /* Dots indicator */
+    .testimonial-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
+    .testimonial-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #ddd;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    
+    .testimonial-dot.active {
+        background: var(--bright-orange);
+    }
+    
+    /* Autoplay indicator */
+    .autoplay-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+    }
+    
+    .autoplay-toggle {
+        background: none;
+        border: none;
+        color: var(--bright-orange);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
+    }
+    
+    .autoplay-toggle i {
+        margin-right: 5px;
+    }
+        
         @media (max-width: 768px) {
             .hero-headline {
                 font-size: 2rem;
@@ -675,6 +851,110 @@
         </div>
     </section>
 
+    
+<!-- Testimonial Slider -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-3xl md:text-4xl font-heading font-bold text-center" data-aos="fade-up">Apa Kata Klien Kami?</h2>
+        <p class="text-center text-lg text-dark-brown opacity-80 max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+            Ribuan pelaku usaha dan profesional telah mempercayakan pembuatan website mereka kepada Zrivzo Labs.
+        </p>
+        
+        <div class="testimonial-slider" data-aos="fade-up">
+            <div class="testimonial-track">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=128&q=80" 
+                                 alt="Ahmad Fotografi" class="testimonial-avatar">
+                            <div class="testimonial-rating">
+                                <i data-feather="star" class="text-yellow-400 fill-current"></i>
+                                <i data-feather="star" class="text-yellow-400 fill-current"></i>
+                                <i data-feather="star" class="text-yellow-400 fill-current"></i>
+                                <i data-feather="star" class="text-yellow-400 fill-current"></i>
+                                <i data-feather="star" class="text-yellow-400 fill-current"></i>
+                            </div>
+                            <p class="testimonial-text">"Website dari Zrivzo Labs membantu portofolio fotografi saya terlihat profesional. Dalam 2 minggu, saya dapat 3 klien baru! Pelayanan cepat dan hasilnya memuaskan."</p>
+                            <div class="testimonial-author">Ahmad Fotografi</div>
+                            <div class="testimonial-role">Fotografer Profesional</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=128&q=80" 
+                                 alt="Sari's Cake" class="testimonial-avatar">
+                            <div class="testimonial-rating">
+                                <i data-feather="star" class="text-yellow-400 fill-current"></i>
+                                <i data-feather="star" class="text-yellow-400 fill-current"></i>
+                                <i data-feather="star" class="text-yellow-400 fill-current"></i>
+                                <i data-feather="star" class="text-yellow-400 fill-current"></i>
+                                <i data-feather="star" class="text-yellow-400 fill-current"></i>
+                            </div>
+                            <p class="testimonial-text">"Sejak punya website, orderan kue saya meningkat 40%! Desainnya cantik dan mudah diakses pelanggan. Harga Rp9.000 benar-benar worth it!"</p>
+                            <div class="testimonial-author">Sari's Cake</div>
+                            <div class="testimonial-role">Pemilik Usaha Kue</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=128&q=80" 
+                                 alt="Rizki Freelancer" class="testimonial-avatar">
+                            <div class="testimonial-rating">
+                                <i data-feather="star" class="text-yellow-400 fill-current"></i>
+                                <i data-feather="star" class="text-yellow-400 fill-current"></i>
+                                <i data-feather="star" class="text-yellow-400 fill-current"></i>
+                                <i data-feather="star" class="text-yellow-400 fill-current"></i>
+                                <i data-feather="star" class="text-yellow-400 fill-current"></i>
+                            </div>
+                            <p class="testimonial-text">"Sebagai freelancer, website personal sangat penting. Zrivzo Labs membantu saya membuat website yang menarik dengan harga terjangkau. Sekarang klien lebih mudah menemukan saya!"</p>
+                            <div class="testimonial-author">Rizki Freelancer</div>
+                            <div class="testimonial-role">Web Developer Freelance</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Controls -->
+            <div class="testimonial-nav">
+                <button id="testimonialPrev" aria-label="Testimonial sebelumnya">
+                    <i data-feather="chevron-left"></i>
+                </button>
+                <button id="testimonialNext" aria-label="Testimonial berikutnya">
+                    <i data-feather="chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- Dots Indicator -->
+            <div class="testimonial-dots" id="testimonialDots">
+                <!-- Dots akan di-generate oleh JavaScript -->
+            </div>
+            
+            <!-- Autoplay Controls -->
+            <div class="autoplay-controls">
+                <button class="autoplay-toggle" id="autoplayToggle">
+                    <i data-feather="pause" id="autoplayIcon"></i>
+                    <span id="autoplayText">Jeda autoplay</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12" data-aos="fade-up">
+            <a href="https://s.id/orderwebz" target="_blank" class="btn-primary px-6 py-3 rounded-lg text-lg font-button inline-block shadow-lg">
+                Jadilah Klien Berikutnya
+            </a>
+        </div>
+    </div>
+</section>
+
     <!-- Cara Order -->
     <section id="how-to-order" class="py-16 bg-light-orange">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -854,7 +1134,190 @@
             mobileMenuLinks.forEach(link => {
                 link.addEventListener('click', closeMobileMenuFunc);
             });
+
+            document.addEventListener('DOMContentLoaded', function() {
+        // Inisialisasi testimonial slider setelah Feather Icons dimuat
+        feather.replace();
+        initTestimonialSlider();
+        
+        function initTestimonialSlider() {
+            const track = document.querySelector('.testimonial-track');
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const prevBtn = document.getElementById('testimonialPrev');
+            const nextBtn = document.getElementById('testimonialNext');
+            const dotsContainer = document.getElementById('testimonialDots');
+            const autoplayToggle = document.getElementById('autoplayToggle');
+            const autoplayIcon = document.getElementById('autoplayIcon');
+            const autoplayText = document.getElementById('autoplayText');
             
+            let currentIndex = 0;
+            let slideCount = slides.length;
+            let autoplayInterval;
+            let isAutoplay = true;
+            let slidesToShow = getSlidesToShow();
+            
+            // Fungsi untuk menentukan jumlah slide yang ditampilkan berdasarkan lebar layar
+            function getSlidesToShow() {
+                if (window.innerWidth >= 1024) return 3;
+                if (window.innerWidth >= 768) return 2;
+                return 1;
+            }
+            
+            // Fungsi untuk mengupdate tampilan slider
+            function updateSlider() {
+                const slideWidth = 100 / slidesToShow;
+                track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+                
+                // Update status tombol navigasi
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex >= slideCount - slidesToShow;
+                
+                // Update dots indicator
+                updateDots();
+            }
+            
+            // Fungsi untuk membuat dots indicator
+            function createDots() {
+                dotsContainer.innerHTML = '';
+                const dotCount = slideCount - slidesToShow + 1;
+                
+                for (let i = 0; i < dotCount; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('testimonial-dot');
+                    if (i === currentIndex) dot.classList.add('active');
+                    
+                    dot.addEventListener('click', () => {
+                        currentIndex = i;
+                        updateSlider();
+                        resetAutoplay();
+                    });
+                    
+                    dotsContainer.appendChild(dot);
+                }
+            }
+            
+            // Fungsi untuk mengupdate dots indicator
+            function updateDots() {
+                const dots = document.querySelectorAll('.testimonial-dot');
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Fungsi untuk navigasi ke slide sebelumnya
+            function prevSlide() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlider();
+                    resetAutoplay();
+                }
+            }
+            
+            // Fungsi untuk navigasi ke slide berikutnya
+            function nextSlide() {
+                if (currentIndex < slideCount - slidesToShow) {
+                    currentIndex++;
+                    updateSlider();
+                    resetAutoplay();
+                }
+            }
+            
+            // Fungsi untuk autoplay
+            function startAutoplay() {
+                if (isAutoplay) {
+                    autoplayInterval = setInterval(() => {
+                        if (currentIndex < slideCount - slidesToShow) {
+                            currentIndex++;
+                        } else {
+                            currentIndex = 0;
+                        }
+                        updateSlider();
+                    }, 5000); // Ganti slide setiap 5 detik
+                }
+            }
+            
+            // Fungsi untuk menghentikan autoplay
+            function stopAutoplay() {
+                clearInterval(autoplayInterval);
+            }
+            
+            // Fungsi untuk mereset autoplay
+            function resetAutoplay() {
+                stopAutoplay();
+                if (isAutoplay) {
+                    startAutoplay();
+                }
+            }
+            
+            // Fungsi untuk toggle autoplay
+            function toggleAutoplay() {
+                isAutoplay = !isAutoplay;
+                
+                if (isAutoplay) {
+                    autoplayIcon.setAttribute('data-feather', 'pause');
+                    autoplayText.textContent = 'Jeda autoplay';
+                    startAutoplay();
+                } else {
+                    autoplayIcon.setAttribute('data-feather', 'play');
+                    autoplayText.textContent = 'Putar autoplay';
+                    stopAutoplay();
+                }
+                
+                feather.replace();
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+            autoplayToggle.addEventListener('click', toggleAutoplay);
+            
+            // Handle resize event
+            window.addEventListener('resize', () => {
+                const newSlidesToShow = getSlidesToShow();
+                
+                if (newSlidesToShow !== slidesToShow) {
+                    slidesToShow = newSlidesToShow;
+                    currentIndex = 0; // Reset ke slide pertama saat ukuran berubah
+                    createDots();
+                    updateSlider();
+                }
+            });
+            
+            // Inisialisasi awal
+            createDots();
+            updateSlider();
+            startAutoplay();
+            
+            // Tambahan: Swipe support untuk perangkat touch
+            let startX = 0;
+            let endX = 0;
+            
+            track.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+            
+            track.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                
+                if (startX - endX > swipeThreshold) {
+                    // Swipe kiri - next slide
+                    nextSlide();
+                } else if (endX - startX > swipeThreshold) {
+                    // Swipe kanan - prev slide
+                    prevSlide();
+                }
+            }
+        }
+    });
             // Cookie consent
             const cookieConsent = document.getElementById('cookieConsent');
             const cookieAccept = document.getElementById('cookieAccept');
