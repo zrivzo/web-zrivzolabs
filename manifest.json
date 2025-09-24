@@ -1,0 +1,107 @@
+{
+  "name": "Zrivzo Labs - Website Landing Page Profesional",
+  "short_name": "Zrivzo Labs",
+  "description": "Zrivzo Labs: Landing Page simpel untuk personal branding & usaha kecil. Hanya Rp9.000 dengan domain gratis untuk 10 order pertama!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5E7C6",
+  "theme_color": "#FF6F00",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "id",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/assets/favicon/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/assets/favicon/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/assets/favicon/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/screenshots/desktop-1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Landing Page Zrivzo Labs - Tampilan Desktop"
+    },
+    {
+      "src": "/assets/screenshots/mobile-1.png",
+      "sizes": "375x667",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Landing Page Zrivzo Labs - Tampilan Mobile"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://v0.zrivzo.qzz.io"
+    }
+  ],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Pesan Website",
+      "short_name": "Pesan",
+      "description": "Pesan website landing page hanya Rp9.000",
+      "url": "/order",
+      "icons": [
+        {
+          "src": "/assets/icons/shortcut-order.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Template Demo",
+      "short_name": "Template",
+      "description": "Lihat template website yang tersedia",
+      "url": "/templates",
+      "icons": [
+        {
+          "src": "/assets/icons/shortcut-template.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Kontak Kami",
+      "short_name": "Kontak",
+      "description": "Hubungi tim Zrivzo Labs",
+      "url": "/contact",
+      "icons": [
+        {
+          "src": "/assets/icons/shortcut-contact.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}
