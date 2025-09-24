@@ -442,6 +442,106 @@
     .autoplay-toggle i {
         margin-right: 5px;
     }
+     .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .faq-item {
+        margin-bottom: 1rem;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        background: white;
+    }
+    
+    .faq-item:hover {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+    
+    .faq-question {
+        width: 100%;
+        padding: 1.5rem;
+        text-align: left;
+        background: white;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Bricolage Grotesque', sans-serif;
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: var(--dark-brown);
+        transition: background-color 0.3s;
+    }
+    
+    .faq-question:hover {
+        background-color: #f9f9f9;
+    }
+    
+    .faq-icon {
+        transition: transform 0.3s ease;
+        color: var(--bright-orange);
+    }
+    
+    .faq-item.active .faq-icon {
+        transform: rotate(180deg);
+    }
+    
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, padding 0.3s ease;
+        background: white;
+        padding: 0 1.5rem;
+    }
+    
+    .faq-item.active .faq-answer {
+        max-height: 300px; /* Nilai cukup besar untuk menampung konten */
+        padding: 0 1.5rem 1.5rem;
+    }
+    
+    .faq-answer p {
+        margin: 0;
+        line-height: 1.6;
+        color: var(--dark-brown);
+        opacity: 0.9;
+    }
+    
+    /* Efek tambahan untuk item aktif */
+    .faq-item.active {
+        box-shadow: 0 8px 25px rgba(255, 107, 0, 0.15);
+        border-left: 4px solid var(--bright-orange);
+    }
+    
+    /* Animasi fade in untuk konten jawaban */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .faq-answer p {
+        animation: fadeIn 0.5s ease;
+    }
+    
+    /* Responsif untuk mobile */
+    @media (max-width: 640px) {
+        .faq-question {
+            padding: 1.25rem;
+            font-size: 1rem;
+        }
+        
+        .faq-answer {
+            padding: 0 1.25rem;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 1.25rem 1.25rem;
+        }
+    }
         
         @media (max-width: 768px) {
             .hero-headline {
@@ -852,7 +952,131 @@
     </section>
 
     
-<!-- Testimonial Slider -->
+
+    <!-- Cara Order -->
+    <section id="how-to-order" class="py-16 bg-light-orange">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="section-title text-3xl md:text-4xl font-heading font-bold text-center" data-aos="fade-up">Cara Order Mudah & Cepat</h2>
+            <p class="text-center text-lg text-dark-brown opacity-80 max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                Hanya butuh 3 langkah sederhana untuk memiliki website profesional. Kami akan memandu Anda dari awal hingga website siap digunakan.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <h3 class="text-xl font-heading font-semibold mb-4">Kirim Detail Website</h3>
+                    <p class="text-dark-brown opacity-90">Klik tombol Order Sekarang dan kirimkan informasi yang dibutuhkan melalui WhatsApp. Jelaskan preferensi desain dan konten yang diinginkan.</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <h3 class="text-xl font-heading font-semibold mb-4">Konfirmasi & Pembayaran</h3>
+                    <p class="text-dark-brown opacity-90">Setelah konfirmasi detail, lakukan pembayaran Rp9.000 via transfer bank atau e-wallet. Kami akan segera memproses pesanan Anda.</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <h3 class="text-xl font-heading font-semibold mb-4">Website Siap Digunakan!</h3>
+                    <p class="text-dark-brown opacity-90">Dalam 3-5 hari, website Anda akan siap. Kami berikan 1 revisi gratis dan bimbingan penggunaan hingga Anda puas.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="https://s.id/orderwebz" target="_blank" class="btn-primary px-8 py-4 rounded-lg text-xl font-button inline-block shadow-lg">
+                    ORDER SEKARANG - Rp9.000
+                </a>
+                <p class="text-sm text-dark-brown opacity-70 mt-4">Gratis konsultasi sebelum pemesanan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HTML untuk FAQ Dropdown -->
+<section class="py-16 bg-light-orange">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title text-3xl md:text-4xl font-heading font-bold text-center" data-aos="fade-up">Pertanyaan Umum</h2>
+        
+        <div class="faq-container mt-12" data-aos="fade-up">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Apakah benar hanya Rp9.000 sekali bayar?</span>
+                    <i data-feather="chevron-down" class="faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Ya, benar! Anda hanya membayar Rp9.000 sekali untuk pembuatan website landing page. Tidak ada biaya tersembunyi atau berlangganan. Harga ini merupakan promo khusus untuk membantu UMKM dan pelaku usaha kecil di Indonesia.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 2 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Berapa lama proses pengerjaan website?</span>
+                    <i data-feather="chevron-down" class="faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Rata-rata website siap dalam 3-5 hari kerja, tergantung kompleksitas konten yang Anda berikan. Kami akan memberikan update progres pengerjaan secara berkala melalui WhatsApp.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 3 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Apakah bisa request desain khusus?</span>
+                    <i data-feather="chevron-down" class="faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Kami menyediakan template yang bisa disesuaikan dengan kebutuhan Anda. Untuk desain khusus di luar template, tersedia dengan tambahan biaya. Silakan konsultasikan kebutuhan Anda melalui WhatsApp.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 4 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Bagaimana dengan domain gratis?</span>
+                    <i data-feather="chevron-down" class="faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Domain .my.id atau .biz.id gratis hanya untuk 10 order pertama. Setelah kuota habis, domain bisa dibeli dengan harga normal mulai dari Rp 50.000/tahun. Kami akan membantu proses pendaftaran domain.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 5 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Apakah ada biaya hosting setelah 1 tahun?</span>
+                    <i data-feather="chevron-down" class="faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Hosting gratis selama 1 tahun termasuk dalam paket. Setelah 1 tahun, Anda bisa memperpanjang hosting dengan biaya mulai dari Rp 100.000/tahun, atau kami bisa bantu migrasi ke penyedia hosting lain sesuai kebutuhan.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 6 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Bagaimana cara revisi desain?</span>
+                    <i data-feather="chevron-down" class="faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Setelah website selesai, kami berikan 1 kali revisi gratis. Anda bisa memberikan feedback melalui WhatsApp, dan kami akan menyesuaikan sesuai permintaan. Revisi tambahan tersedia dengan biaya tambahan.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA tambahan di bawah FAQ -->
+        <div class="text-center mt-12" data-aos="fade-up">
+            <p class="text-lg text-dark-brown opacity-80 mb-6">Masih ada pertanyaan lain? Hubungi kami langsung!</p>
+            <a href="https://wa.zone.id/zrivzo" target="_blank" class="btn-primary px-6 py-3 rounded-lg text-lg font-button inline-block shadow-lg mr-4">
+                Chat WhatsApp
+            </a>
+            <a href="mailto:zrivzohq@gmail.com" class="px-6 py-3 rounded-lg text-lg border-2 border-bright-orange text-bright-orange hover:bg-bright-orange hover:text-white transition inline-block">
+                Email Kami
+            </a>
+        </div>
+    </div>
+</section>
+
+    <!-- Testimonial Slider -->
 <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="section-title text-3xl md:text-4xl font-heading font-bold text-center" data-aos="fade-up">Apa Kata Klien Kami?</h2>
@@ -954,43 +1178,8 @@
         </div>
     </div>
 </section>
+    
 
-    <!-- Cara Order -->
-    <section id="how-to-order" class="py-16 bg-light-orange">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="section-title text-3xl md:text-4xl font-heading font-bold text-center" data-aos="fade-up">Cara Order Mudah & Cepat</h2>
-            <p class="text-center text-lg text-dark-brown opacity-80 max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
-                Hanya butuh 3 langkah sederhana untuk memiliki website profesional. Kami akan memandu Anda dari awal hingga website siap digunakan.
-            </p>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="step-number">1</div>
-                    <h3 class="text-xl font-heading font-semibold mb-4">Kirim Detail Website</h3>
-                    <p class="text-dark-brown opacity-90">Klik tombol Order Sekarang dan kirimkan informasi yang dibutuhkan melalui WhatsApp. Jelaskan preferensi desain dan konten yang diinginkan.</p>
-                </div>
-                
-                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="step-number">2</div>
-                    <h3 class="text-xl font-heading font-semibold mb-4">Konfirmasi & Pembayaran</h3>
-                    <p class="text-dark-brown opacity-90">Setelah konfirmasi detail, lakukan pembayaran Rp9.000 via transfer bank atau e-wallet. Kami akan segera memproses pesanan Anda.</p>
-                </div>
-                
-                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="step-number">3</div>
-                    <h3 class="text-xl font-heading font-semibold mb-4">Website Siap Digunakan!</h3>
-                    <p class="text-dark-brown opacity-90">Dalam 3-5 hari, website Anda akan siap. Kami berikan 1 revisi gratis dan bimbingan penggunaan hingga Anda puas.</p>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12" data-aos="fade-up">
-                <a href="https://s.id/orderwebz" target="_blank" class="btn-primary px-8 py-4 rounded-lg text-xl font-button inline-block shadow-lg">
-                    ORDER SEKARANG - Rp9.000
-                </a>
-                <p class="text-sm text-dark-brown opacity-70 mt-4">Gratis konsultasi sebelum pemesanan</p>
-            </div>
-        </div>
-    </section>
 
     <!-- CTA Section -->
     <section class="py-16 bg-bright-orange text-white">
@@ -1317,6 +1506,29 @@
                 }
             }
         }
+    });
+            
+        // FAQ Accordion Functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Tutup semua item FAQ lainnya
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Buka/tutup item yang diklik
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Opsional: Buka FAQ pertama secara default
+        // faqItems[0].classList.add('active');
     });
             // Cookie consent
             const cookieConsent = document.getElementById('cookieConsent');
