@@ -1,6 +1,6 @@
 # Zrivzo Labs – v0 Website
 
-![Zrivzo Labs Logo](https://v0.zrivzo.qzz.io/assets/logozrivzo.svg)
+![Zrivzo Labs Logo](https://v0.zrivzo.qzz.io/assets/og-image.png)
 
 Welcome to the **Zrivzo Labs v0 Website Project**.  
 This is the first public version of **Zrivzo Labs**, a digital lab focused on building **websites, apps, and tools** that bring ideas to life.
