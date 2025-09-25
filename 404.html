@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Tidak Ditemukan - Zrivzo Labs</title>
+    <meta name="description" content="Halaman yang Anda cari tidak ditemukan. Kembali ke beranda Zrivzo Labs untuk layanan pembuatan website profesional.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bright-orange': '#FF6B00',
+                        'creamy-peach': '#F5E7C6',
+                        'soft-white': '#F5EFE6',
+                        'dark-brown': '#4A3524',
+                        'light-orange': '#FFF5EB',
+                    },
+                    fontFamily: {
+                        'heading': ['Bricolage Grotesque', 'sans-serif'],
+                        'body': ['Nunito', 'sans-serif'],
+                        'button': ['Alata', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <style>
+        :root {
+            --bright-orange: #FF6B00;
+            --creamy-peach: #F5E7C6;
+            --soft-white: #F5EFE6;
+            --dark-brown: #4A3524;
+            --light-orange: #FFF5EB;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, var(--light-orange) 0%, var(--soft-white) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-brown);
+        }
+        
+        .error-container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+        }
+        
+        .error-animation {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .orbit {
+            position: absolute;
+            border: 2px dashed rgba(255, 107, 0, 0.3);
+            border-radius: 50%;
+            animation: spin 20s linear infinite;
+        }
+        
+        .orbit-1 {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+            margin-left: -100px;
+            animation-duration: 25s;
+        }
+        
+        .orbit-2 {
+            width: 300px;
+            height: 300px;
+            top: 50%;
+            left: 50%;
+            margin-top: -150px;
+            margin-left: -150px;
+            animation-duration: 35s;
+            animation-direction: reverse;
+        }
+        
+        .satellite {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--bright-orange);
+            border-radius: 50%;
+            top: 0;
+            left: 50%;
+            margin-left: -10px;
+            margin-top: -10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .btn-primary {
+            font-family: 'Alata', sans-serif;
+            background-color: var(--bright-orange);
+            color: white;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e05e00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 0, 0.4);
+        }
+        
+        .search-box {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .decoration {
+            position: absolute;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .decoration-1 {
+            top: 10%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            background: var(--bright-orange);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .decoration-2 {
+            bottom: 10%;
+            right: 10%;
+            width: 150px;
+            height: 150px;
+            background: var(--bright-orange);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: float 10s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
+    
+    <div class="error-container">
+        <!-- Animasi Error -->
+        <div class="error-animation mb-8">
+            <div class="orbit orbit-1">
+                <div class="satellite"></div>
+            </div>
+            <div class="orbit orbit-2">
+                <div class="satellite"></div>
+            </div>
+            <div class="floating-element inline-block">
+                <svg width="200" height="200" viewBox="0 0 200 200" class="mx-auto">
+                    <circle cx="100" cy="100" r="90" fill="none" stroke="#FF6B00" stroke-width="8" stroke-dasharray="20,10"/>
+                    <circle cx="100" cy="100" r="70" fill="none" stroke="#FF6B00" stroke-width="4" stroke-dasharray="10,5" opacity="0.7"/>
+                    <text x="100" y="110" text-anchor="middle" font-family="Bricolage Grotesque" font-size="80" font-weight="bold" fill="#FF6B00">404</text>
+                    <circle cx="160" cy="60" r="15" fill="#FF6B00">
+                        <animate attributeName="r" values="15;20;15" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="50" cy="140" r="10" fill="#FF6B00" opacity="0.7">
+                        <animate attributeName="r" values="10;15;10" dur="3s" repeatCount="indefinite"/>
+                    </circle>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Konten Error -->
+        <div class="mb-8">
+            <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">Halaman Tidak Ditemukan</h1>
+            <p class="text-lg md:text-xl text-dark-brown opacity-80 mb-6 max-w-md mx-auto">
+                Sepertinya halaman yang Anda cari telah hilang di angkasa luas internet. 
+                Jangan khawatir, kami akan membantu Anda kembali ke orbit yang benar!
+            </p>
+            
+            <div class="search-box mb-6">
+                <div class="relative">
+                    <input type="text" placeholder="Cari di Zrivzo Labs..." 
+                           class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bright-orange focus:border-transparent">
+                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-bright-orange text-white p-2 rounded-md">
+                        <i data-feather="search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Opsi Navigasi -->
+        <div class="grid md:grid-cols-2 gap-4 mb-8 max-w-md mx-auto">
+            <a href="/" class="btn-primary px-6 py-3 rounded-lg text-center block">
+                <i data-feather="home" class="inline w-4 h-4 mr-2"></i>
+                Kembali ke Beranda
+            </a>
+            <a href="https://s.id/orderwebz" target="_blank" class="px-6 py-3 rounded-lg text-center border-2 border-bright-orange text-bright-orange hover:bg-bright-orange hover:text-white transition block">
+                <i data-feather="shopping-cart" class="inline w-4 h-4 mr-2"></i>
+                Order Website
+            </a>
+        </div>
+
+        <!-- Link Cepat -->
+        <div class="mb-8">
+            <p class="text-sm text-dark-brown opacity-70 mb-3">Atau kunjungi halaman populer kami:</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="/#services" class="px-3 py-1 bg-white rounded-full text-sm border border-gray-200 hover:border-bright-orange hover:text-bright-orange transition">Layanan</a>
+                <a href="/#pricing" class="px-3 py-1 bg-white rounded-full text-sm border border-gray-200 hover:border-bright-orange hover:text-bright-orange transition">Harga</a>
+                <a href="/#templates" class="px-3 py-1 bg-white rounded-full text-sm border border-gray-200 hover:border-bright-orange hover:text-bright-orange transition">Template</a>
+                <a href="/#how-to-order" class="px-3 py-1 bg-white rounded-full text-sm border border-gray-200 hover:border-bright-orange hover:text-bright-orange transition">Cara Order</a>
+            </div>
+        </div>
+
+        <!-- Kontak Support -->
+        <div class="bg-white rounded-xl p-6 shadow-lg max-w-md mx-auto">
+            <h3 class="font-heading font-semibold text-lg mb-3">Butuh Bantuan?</h3>
+            <p class="text-sm text-dark-brown opacity-80 mb-4">
+                Tim support kami siap membantu Anda 24/7. Jangan ragu untuk menghubungi kami!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <a href="https://wa.zone.id/zrivzo" target="_blank" class="flex items-center justify-center px-4 py-2 bg-green-100 text-green-800 rounded-lg hover:bg-green-200 transition">
+                    <i data-feather="message-circle" class="w-4 h-4 mr-2"></i>
+                    WhatsApp
+                </a>
+                <a href="mailto:zrivzohq@gmail.com" class="flex items-center justify-center px-4 py-2 bg-blue-100 text-blue-800 rounded-lg hover:bg-blue-200 transition">
+                    <i data-feather="mail" class="w-4 h-4 mr-2"></i>
+                    Email
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-8 pt-6 border-t border-gray-200">
+            <div class="flex items-center justify-center mb-4">
+                <img src="https://v0.zrivzo.qzz.io/assets/logozrivzo.svg" alt="Zrivzo Labs Logo" class="h-6 w-auto mr-2">
+                <span class="font-heading font-bold">Zrivzo Labs</span>
+            </div>
+            <p class="text-xs text-dark-brown opacity-60">
+                &copy; 2025 Zrivzo Labs. Website Profesional Hanya Rp9.000
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Feather Icons
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            
+            // Animasi tambahan untuk elemen
+            const elements = document.querySelectorAll('.floating-element');
+            elements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.5}s`;
+            });
+            
+            // Fungsi pencarian sederhana
+            const searchInput = document.querySelector('input[type="text"]');
+            const searchButton = document.querySelector('button');
+            
+            searchButton.addEventListener('click', function() {
+                const query = searchInput.value.trim();
+                if (query) {
+                    // Redirect ke halaman pencarian atau beranda dengan parameter
+                    window.location.href = `/?s=${encodeURIComponent(query)}`;
+                }
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchButton.click();
+                }
+            });
+            
+            // Efek parallax sederhana untuk dekorasi
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const decoration1 = document.querySelector('.decoration-1');
+                const decoration2 = document.querySelector('.decoration-2');
+                
+                if (decoration1) {
+                    decoration1.style.transform = `translateY(${scrolled * 0.1}px) rotate(${scrolled * 0.05}deg)`;
+                }
+                
+                if (decoration2) {
+                    decoration2.style.transform = `translateY(${scrolled * 0.15}px) rotate(${scrolled * -0.03}deg)`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
