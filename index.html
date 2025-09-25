@@ -150,16 +150,6 @@
     </style>
 </head>
 <body class="bg-white text-dark-brown">
-    <!-- Cookie Consent Banner -->
-    <div id="cookieConsent" class="cookie-consent">
-        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
-            <p class="text-center md:text-left mb-4 md:mb-0 text-sm">Kami menggunakan cookie untuk meningkatkan pengalaman Anda. Dengan melanjutkan, Anda setuju dengan kebijakan cookie kami.</p>
-            <div class="flex space-x-2">
-                <button id="cookieAccept" class="px-4 py-2 bg-bright-orange text-white rounded-md hover:bg-orange-600 transition text-sm">Setuju</button>
-                <button id="cookieDecline" class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition text-sm">Tolak</button>
-            </div>
-        </div>
-    </div>
 
     <!-- Mobile Menu Overlay -->
     <div id="mobileOverlay" class="mobile-overlay"></div>
@@ -1108,60 +1098,73 @@
                 });
             });
             
-            // Cookie consent
-            const cookieConsent = document.getElementById('cookieConsent');
-            const cookieAccept = document.getElementById('cookieAccept');
-            const cookieDecline = document.getElementById('cookieDecline');
-            
-            if (!localStorage.getItem('cookieConsent')) {
-                setTimeout(() => {
-                    cookieConsent.classList.add('show');
-                }, 2000);
-            }
-            
-            cookieAccept.addEventListener('click', function() {
-                localStorage.setItem('cookieConsent', 'accepted');
-                cookieConsent.classList.remove('show');
-            });
-            
-            cookieDecline.addEventListener('click', function() {
-                localStorage.setItem('cookieConsent', 'declined');
-                cookieConsent.classList.remove('show');
-            });
-            
             // Order button confirmation
-            const orderButtons = document.querySelectorAll('a[href="https://s.id/orderwebz"]');
-            orderButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    if (!e.ctrlKey && !e.metaKey) {
-                        e.preventDefault();
-                        Swal.fire({
-                            title: 'Order Website Zrivzo Labs',
-                            html: `
-                                <p>Anda akan diarahkan ke WhatsApp untuk melanjutkan pemesanan.</p>
-                                <div class="my-4 p-3 bg-orange-50 rounded-lg">
-                                    <p class="font-semibold text-orange-800">Penawaran Spesial:</p>
-                                    <ul class="text-left mt-2 text-sm">
-                                        <li>✓ Website Landing Page Profesional</li>
-                                        <li>✓ Hanya Rp9.000 ( sekali bayar )</li>
-                                        <li>✓ Domain Gratis untuk 10 order pertama</li>
-                                        <li>✓ Garansi 30 hari</li>
-                                    </ul>
-                                </div>
-                                <p>Apakah Anda yakin ingin melanjutkan?</p>
-                            `,
-                            icon: 'question',
-                            confirmButtonColor: '#FF6B00',
-                            confirmButtonText: 'Ya, Lanjutkan ke WhatsApp'
-                            
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.open('https://s.id/orderwebz', '_blank');
-                            }
+const orderButtons = document.querySelectorAll('a[href="https://s.id/orderwebz"]');
+orderButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+        // Only show confirmation for internal clicks (not when opening in new tab)
+        if (!e.ctrlKey && !e.metaKey) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Order Website Zrivzo Labs',
+                html: `
+                    <p>Anda akan diarahkan ke WhatsApp untuk melanjutkan pemesanan.</p>
+                    <div class="my-4 p-3 bg-orange-50 rounded-lg">
+                        <p class="font-semibold text-orange-800">Penawaran Spesial:</p>
+                        <ul class="text-left mt-2 text-sm" style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 5px;">✓ Website Landing Page Profesional</li>
+                            <li style="margin-bottom: 5px;">✓ Hanya Rp9.000 (sekali bayar)</li>
+                            <li style="margin-bottom: 5px;">✓ Domain Gratis untuk 10 order pertama</li>
+                            <li>✓ Garansi 30 hari</li>
+                        </ul>
+                    </div>
+                    <p>Apakah Anda yakin ingin melanjutkan?</p>
+                `,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#FF6B00',
+                cancelButtonColor: '#6B7280',
+                confirmButtonText: 'Ya, Lanjutkan ke WhatsApp',
+                cancelButtonText: 'Batal',
+                focusConfirm: false,
+                allowOutsideClick: false,
+                allowEscapeKey: true,
+                allowEnterKey: true,
+                reverseButtons: false,
+                showClass: {
+                    popup: 'swal2-show',
+                    backdrop: 'swal2-backdrop-show'
+                },
+                hideClass: {
+                    popup: 'swal2-hide',
+                    backdrop: 'swal2-backdrop-hide'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.open('https://s.id/orderwebz', '_blank');
+                    
+                    // Optional: Track conversion
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-XXXXXXXXX/YYYYYYYYYYYY',
+                            'value': 1.0,
+                            'currency': 'IDR'
                         });
                     }
-                });
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    // User clicked cancel
+                    Swal.fire({
+                        title: 'Pemesanan Dibatalkan',
+                        text: 'Anda dapat memesan kapan saja melalui tombol Order Sekarang',
+                        icon: 'info',
+                        confirmButtonColor: '#FF6B00',
+                        confirmButtonText: 'Oke, Mengerti'
+                    });
+                }
             });
+        }
+    });
+});
             
             // Update slot counter
             const slotCounter = document.getElementById('slotCounter');
