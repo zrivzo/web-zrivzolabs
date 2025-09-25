@@ -1151,11 +1151,9 @@
                                 <p>Apakah Anda yakin ingin melanjutkan?</p>
                             `,
                             icon: 'question',
-                            showCancelButton: true,
                             confirmButtonColor: '#FF6B00',
-                            cancelButtonColor: '#6B7280',
-                            confirmButtonText: 'Ya, Lanjutkan ke WhatsApp',
-                            cancelButtonText: 'Batal'
+                            confirmButtonText: 'Ya, Lanjutkan ke WhatsApp'
+                            
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 window.open('https://s.id/orderwebz', '_blank');
